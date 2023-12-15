@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BanPlanes.com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3; /* Light grey background */
+            color: #333; /* Dark grey text */
+        }
+        .header {
+            background-color: #0077cc; /* Blue header */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+            background-color: white; /* White background for content */
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow for content boxes */
+        }
+        .petition-form {
+            text-align: center;
+            margin: 20px 0;
+            background-color: #f8d7da; /* Light red background for petition form */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #signatures {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #28a745; /* Green background for button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-right: 10px;
+            border: 2px solid #0077cc; /* Blue border for input */
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Welcome to BanPlanes.com</h1>
+    <p>Discover the reasons to support the #BanPlanes movement.</p>
+</div>
+
+<div class="content">
+    <!-- Page content -->
+</div>
+
+<div class="petition-form">
+    <h2>Sign the Petition</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="signPetition()">Sign</button>
+</div>
+
+<div id="signatures" class="content">
+    <h3>People who have signed:</h3>
+    <ul id="signatureList"></ul>
+</div>
+
+<script>
+    var signatures = new Set();
+
+    function signPetition() {
+        var name = document.getElementById('nameInput').value.trim();
+
+        if (name) {
+            if (!signatures.has(name)) {
+                signatures.add(name);
+
+                var listItem = document.createElement('li');
+                listItem.textContent = name;
+                document.getElementById('signatureList').appendChild(listItem);
+                document.getElementById('nameInput').value = '';
+            } else {
+                alert('You have already signed the petition.');
+            }
+        } else {
+            alert('Please enter your name');
+        }
+    }
+</script>
+
+</body>
+</html>
+
